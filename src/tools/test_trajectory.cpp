@@ -68,7 +68,7 @@ public:
     // create the action client
     // true causes the client to spin its own thread
     actionlib::SimpleActionClient<control_msgs::FollowJointTrajectoryAction> action_client(
-        trajectory_controller + "/follow_joint_trajectory/", true);
+      trajectory_controller + "/follow_joint_trajectory/", true);
 
     ROS_INFO_NAMED("test_trajetory", "Waiting for action server to start.");
     // wait for the action server to start
@@ -104,8 +104,8 @@ public:
   trajectory_msgs::JointTrajectory createTrajectory()
   {
     std::vector<std::string> joint_names;
-    double min_joint_value = -3.14;
-    double max_joint_value = 3.14;
+    double min_joint_value = 0.0;
+    double max_joint_value = 1.65;
 
     // Get joint names
     nh_private_.getParam(trajectory_controller + "/joints", joint_names);
